@@ -163,16 +163,16 @@ https://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=votre_clé_ici&content-type=JS
   ]
 }
 ```
-Conseils pour Réussir
+### Conseils pour Réussir
 
-Protégez Votre Clé
+## Protégez Votre Clé
 Ne partagez pas votre Clé d’Autorisation publiquement.
 
-Testez d’Abord
+## Testez d’Abord
 Utilisez un outil comme Postman pour tester les URLs avant de coder.
 
-Contactez le Support
+## Contactez le Support
 En cas de problème ou pour envoyer des SMS longs, contactez le support d’AlgerieSMS.
 
-Utilisez des Numéros Internationaux
+## Utilisez des Numéros Internationaux
 Utilisez toujours les codes de pays sans "+" ni "00" (ex.: 21612345678).
