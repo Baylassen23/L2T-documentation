@@ -1,3 +1,10 @@
+<div style="position: relative; height: 300px; background: linear-gradient(to bottom right, #00A1E4 0%, #FF4500 100%);">
+  <div style="position: absolute; top: 20px; right: 20px; font-size: 24px; color: white;">L2T</div>
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+    <h1 style="font-size: 72px; font-weight: bold; color: white; margin: 0;">Guide D'utilisation</h1>
+    <h2 style="font-size: 48px; font-weight: bold; color: white; margin: 0;">API-sms http</h2>
+  </div>
+</div>
 Guide D'utilisation API-sms http
 L2T
 01
