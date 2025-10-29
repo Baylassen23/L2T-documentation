@@ -60,6 +60,7 @@ Copier le code
     "ref": "abc123"
   }
 }
+```
 Cela signifie que votre SMS est en attente d’envoi. Conservez le message_id pour vérifier la livraison plus tard.
 
 2. Vérifier l’État de Livraison (DLR)
@@ -79,8 +80,8 @@ bash
 Copier le code
 https://api.l2t.io/dz/s/api/v1/sms?fct=dlr&key=votre_clé_ici&msg_id=12345&content-type=JSON
 Réponse
-json
-Copier le code
+```json
+
 {
   "success": true,
   "message": "réponse dlr",
@@ -95,6 +96,7 @@ Copier le code
     }
   ]
 }
+```
 Signification des États
 DELIVERED: Le SMS a été livré.
 
@@ -115,9 +117,10 @@ Exemple
 bash
 Copier le code
 https://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=votre_clé_ici&content-type=JSON
+
 Réponse
-json
-Copier le code
+
+```json
 {
   "success": true,
   "message": "Solde du compte",
@@ -128,6 +131,7 @@ Copier le code
     "balance": 500
   }
 }
+```
 Comprendre la Réponse
 success: true → La requête a réussi.
 
@@ -145,8 +149,7 @@ bash
 Copier le code
 https://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=votre_clé_ici&content-type=JSON
 Réponse
-json
-Copier le code
+```json
 {
   "success": true,
   "message": "Liste des expéditeurs autorisés",
@@ -163,6 +166,7 @@ Copier le code
     }
   ]
 }
+```
 Conseils pour Réussir
 Protégez Votre Clé
 Ne partagez pas votre Clé d’Autorisation publiquement.
