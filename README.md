@@ -1,54 +1,42 @@
-<div style="height: 200px; background: linear-gradient(to right, #00A1E4, #FF4500); padding: 20px; text-align: center; color: white;">
-  <div style="float: right; font-size: 24px; font-weight: bold;">L2T</div>
-  <h1 style="font-size: 36px; margin: 10px 0;">Guide D'utilisation</h1>
-  <h2 style="font-size: 28px; margin: 0;">API-sms http</h2>
-</div>
-API HTTP SMS
+# Guide d'Utilisation API-sms http
 
-  01
-  L’API HTTP SMS d’AlgerieSMS vous permet d’envoyer des SMS, de vérifier leur livraison, de consulter votre solde et de gérer vos noms d’expéditeur à l’aide de liens web (URLs). Vous aurez besoin d’une Clé d’Autorisation et d’un Nom d’Expéditeur pour l’utiliser. Ces informations sont fournies lorsque vous créez une application sur le site d’AlgerieSMS. 📧
+## API HTTP SMS
+L’API HTTP SMS d’AlgerieSMS vous permet d’envoyer des SMS, de vérifier leur livraison, de consulter votre solde et de gérer vos noms d’expéditeur à l’aide de liens web (URLs). Vous aurez besoin d’une Clé d’Autorisation et d’un Nom d’Expéditeur pour l’utiliser. Ces informations sont fournies lorsque vous créez une application sur le site d’AlgerieSMS.
 
-Vos Détails API
+## Vos Détails API
+Lorsque vous créez une application sur https://app.algeriesms.com, vous recevez :
 
-  02
-  Lorsque vous créez une application sur https://app.algeriesms.com, vous recevez :  
-  - **ID d’Application**: Un numéro unique pour votre application (ex.: 26). 🔑  
-  - **Clé d’Autorisation**: Un code secret pour accéder à l’API (gardez-le confidentiel !).  
-  - **Nom d’Expéditeur**: Le nom qui apparaît comme expéditeur de vos SMS (ex.: "MonEntreprise").  
-  - **URLs API**: Les liens pour envoyer des SMS, vérifier la livraison, etc.  
-Exemple de Détails
+- **ID d’Application**: Un numéro unique pour votre application (ex.: 26).
+- **Clé d’Autorisation**: Un code secret pour accéder à l’API (gardez-le confidentiel !).
+- **Nom d’Expéditeur**: Le nom qui apparaît comme expéditeur de vos SMS (ex.: "MonEntreprise").
+- **URLs API**: Les liens pour envoyer des SMS, vérifier la livraison, etc.
 
-Nom de l’Application: baylacen.elabed@gmail.com
-Clé d’Autorisation: (Votre clé secrète, affichée comme ••••• dans le tableau de bord)
-Nom d’Expéditeur: YYYYYYY (remplacez par votre nom d’expéditeur approuvé)
-Date d’Expiration: 2026-01-21 10:26
+### Exemple de Détails
+- **Nom de l’Application**: baylacen.elabed@gmail.com
+- **Clé d’Autorisation**: (Votre clé secrète, affichée comme ••••• dans le tableau de bord)
+- **Nom d’Expéditeur**: YYYYYYY (remplacez par votre nom d’expéditeur approuvé)
+- **Date d’Expiration**: 2026-01-21 10:26
+usage.md
+markdown# Comment Utiliser l’API
 
+## 1. Envoyer un SMS
+L’API fonctionne en envoyant des requêtes à des URLs spécifiques. Vous remplacez les placeholders par vos valeurs réelles. Vous pouvez tester ces URLs dans un navigateur, un outil comme Postman, ou un script de programmation.
 
-Comment Utiliser l’API
-1. Envoyer un SMS
+### URL
+https://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=%KEY%&mobile=%MOBILE%&sms=%SMS%&sender=%SENDER%&date=%DATE%&heure=%HEURE%&content-type=%CONTENT-TYPE%
+text- `%KEY%`: Votre Clé d’Autorisation.
+- `%MOBILE%`: Le numéro de téléphone du destinataire au format international (ex.: 21612345678 pour la Tunisie, sans "+" ni "00").
+- `%SMS%`: Le message que vous souhaitez envoyer (ex.: "Bonjour, ceci est un test !").
+- `%SENDER%`: Votre nom d’expéditeur approuvé (ex.: "MonEntreprise").
+- `%DATE%`: (Facultatif) La date d’envoi du SMS (format: jj/mm/aaaa, ex.: 25/10/2025).
+- `%HEURE%`: (Facultatif) L’heure d’envoi du SMS (format: hh:mm, ex.: 14:30).
+- `%CONTENT-TYPE%`: (Facultatif) Utilisez "JSON" ou "XML" (par défaut: JSON).
 
-  03
-  L’API fonctionne en envoyant des requêtes à des URLs spécifiques. Vous remplacez les placeholders par vos valeurs réelles. Vous pouvez tester ces URLs dans un navigateur, un outil comme Postman, ou un script de programmation. 📤  
-
-URL
-texthttps://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=%KEY%&mobile=%MOBILE%&sms=%SMS%&sender=%SENDER%&date=%DATE%&heure=%HEURE%&content-type=%CONTENT-TYPE%
-
-%KEY%: Votre Clé d’Autorisation.
-%MOBILE%: Le numéro de téléphone du destinataire au format international (ex.: 21612345678 pour la Tunisie, sans "+" ni "00").
-%SMS%: Le message que vous souhaitez envoyer (ex.: "Bonjour, ceci est un test !").
-%SENDER%: Votre nom d’expéditeur approuvé (ex.: "MonEntreprise").
-%DATE%: (Facultatif) La date d’envoi du SMS (format: jj/mm/aaaa, ex.: 29/10/2025).
-%HEURE%: (Facultatif) L’heure d’envoi du SMS (format: hh:mm, ex.: 13:12).
-%CONTENT-TYPE%: (Facultatif) Utilisez "JSON" ou "XML" (par défaut: JSON).
-
-1.1 Exemple D’envoi d’un SMS
-
-  04
-
-URL
-texthttps://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=votre_clé_ici&mobile=21612345678&sms=Bonjour+Monde&sender=MonEntreprise&date=29/10/2025&heure=13:12&content-type=JSON
-Réponse
-json{
+## 1.1 Exemple D’envoi d’un SMS
+https://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=votre_clé_ici&mobile=21612345678&sms=Bonjour+Monde&sender=MonEntreprise&date=25/10/2025&heure=14:30&content-type=JSON
+text### Réponse
+```json
+{
   "success": true,
   "message": "le message est enregistré dans la file d’attente",
   "code": "message_queued",
@@ -59,11 +47,17 @@ json{
     "ref": "abc123"
   }
 }
+
+-----------------------------------------------------------------------
+
+Cela signifie que votre SMS est en attente d’envoi. Conservez le message_id pour vérifier la livraison plus tard.
+Conseils
+
+Utilisez "+" à la place des espaces dans le texte du SMS (ex.: "Bonjour+Monde").
+Pour les messages longs, contactez le support d’AlgerieSMS pour activer cette fonctionnalité.
+
 2. Vérifier l’État de Livraison (DLR)
-
-  05
-  Pour vérifier si votre SMS a été livré, utilisez cette URL: 📨  
-
+Pour vérifier si votre SMS a été livré, utilisez cette URL:
 URL
 texthttps://api.l2t.io/dz/s/api/v1/sms?fct=dlr&key=%KEY%&msg_id=%MSG_ID%&content-type=%CONTENT-TYPE%
 
@@ -72,10 +66,6 @@ texthttps://api.l2t.io/dz/s/api/v1/sms?fct=dlr&key=%KEY%&msg_id=%MSG_ID%&content
 %CONTENT-TYPE%: (Facultatif) Utilisez "JSON" ou "XML" (par défaut: JSON).
 
 2.2 Exemple De Vérification l’État de Livraison (DLR)
-
-  06
-
-URL
 texthttps://api.l2t.io/dz/s/api/v1/sms?fct=dlr&key=votre_clé_ici&msg_id=12345&content-type=JSON
 Réponse
 json{
@@ -92,6 +82,9 @@ json{
     }
   ]
 }
+
+-----------------------------------------------------------------------
+
 Signification des États de Livraison
 
 DELIVERED: Le SMS a été livré au destinataire.
@@ -101,10 +94,7 @@ REJECTED: Le destinataire a bloqué votre SMS (ex.: il a répondu "STOP").
 UNKNOWN: Le SMS est en cours de traitement, vérifiez à nouveau plus tard.
 
 3. Consulter Votre Solde
-
-  07
-  Pour voir combien de crédits SMS il vous reste dans votre compte AlgerieSMS, utilisez cette URL: 💰  
-
+Pour voir combien de crédits SMS il vous reste dans votre compte AlgerieSMS, utilisez cette URL:
 URL
 texthttps://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=%KEY%&content-type=%CONTENT-TYPE%
 
@@ -112,10 +102,6 @@ texthttps://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=%KEY%&content-type=%CONTE
 %CONTENT-TYPE%: (Facultatif) Utilisez "JSON" ou "XML" pour choisir le format de la réponse (par défaut: JSON).
 
 3.3 Exemple De Consultation de Solde
-
-  08
-
-URL
 texthttps://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=votre_clé_ici&content-type=JSON
 Réponse
 json{
@@ -128,6 +114,9 @@ json{
     "balance": 500
   }
 }
+
+-----------------------------------------------------------------------
+
 Comprendre la Réponse
 
 success: true: La requête a fonctionné.
@@ -143,28 +132,43 @@ balance: Le nombre de crédits SMS restants (ex.: 500). Cela indique combien de 
 
 3.3 Exemple De Consultation de Solde (Guide Étape par Étape)
 
-  09
-  1. **Trouver Votre Clé d’Autorisation**  
-     - Connectez-vous à https://app.algeriesms.com.  
-     - Allez dans la section API et trouvez votre application (nommée baylacen.elabed@gmail.com).  
-     - Copiez la Clé d’Autorisation (une longue chaîne de caractères).  
-  2. **Construire l’URL**  
-     - Commencez par: https://api.l2t.io/dz/s/api/v1/sms?fct=balance.  
-     - Ajoutez votre clé: Remplacez %KEY% par votre Clé d’Autorisation.  
-     - (Facultatif) Ajoutez le type de contenu: Ajoutez &content-type=JSON (ou XML).  
-     - Exemple: https://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=abc123xyz&content-type=JSON.  
-  3. **Envoyer la Requête**  
-     - Collez l’URL dans un navigateur ou un outil comme Postman.  
-     - Si vous codez, utilisez un script (ex.: Python) pour envoyer la requête.  
-  4. **Lire la Réponse**  
-     - Vérifiez la valeur `balance` (ex.: 500).  
-     - Si votre solde est faible, contactez AlgerieSMS pour ajouter des crédits.  
+Trouver Votre Clé d’Autorisation:
+
+Connectez-vous à https://app.algeriesms.com.
+Allez dans la section API et trouvez votre application (nommée baylacen.elabed@gmail.com).
+Copiez la Clé d’Autorisation (une longue chaîne de caractères).
+
+
+Construire l’URL:
+
+Commencez par: https://api.l2t.io/dz/s/api/v1/sms?fct=balance.
+Ajoutez votre clé: Remplacez %KEY% par votre Clé d’Autorisation.
+(Facultatif) Ajoutez le type de contenu: Ajoutez &content-type=JSON (ou XML).
+Exemple: https://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=abc123xyz&content-type=JSON.
+
+
+Envoyer la Requête:
+
+Collez l’URL dans un navigateur ou un outil comme Postman.
+Si vous codez, utilisez un script (ex.: Python) pour envoyer la requête.
+
+
+Lire la Réponse:
+
+Vérifiez la valeur balance (ex.: 500).
+Si votre solde est faible, contactez AlgerieSMS pour ajouter des crédits.
+
+
+
+Conseils
+
+Gardez votre Clé d’Autorisation secrète et ne la partagez pas.
+Testez l’URL dans Postman si vous débutez avec les API, c’est plus simple que de coder.
+Vérifiez votre solde régulièrement pour vous assurer d’avoir assez de crédits.
+Si le solde est incorrect ou si vous ne pouvez pas y accéder, contactez le support d’AlgerieSMS.
 
 4. Récupérer la Liste des Expéditeurs
-
-  10
-  Pour voir vos noms d’expéditeur approuvés, utilisez cette URL: 📋  
-
+Pour voir vos noms d’expéditeur approuvés, utilisez cette URL:
 URL
 texthttps://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=%KEY%&content-type=%CONTENT-TYPE%
 
@@ -172,10 +176,6 @@ texthttps://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=%KEY%&content-type=%CONTEN
 %CONTENT-TYPE%: (Facultatif) Utilisez "JSON" ou "XML" (par défaut: JSON).
 
 4.4 Exemple De Récupération de la Liste des Expéditeurs
-
-  11
-
-URL
 texthttps://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=votre_clé_ici&content-type=JSON
 Réponse
 json{
@@ -194,10 +194,21 @@ json{
     }
   ]
 }
-Conseils pour Réussir
 
-  12
-  - **Protégez Votre Clé**: Ne partagez pas votre Clé d’Autorisation publiquement. 🔒  
-  - **Testez d’Abord**: Utilisez un outil comme Postman pour tester les URLs avant de coder.  
-  - **Contactez le Support**: En cas de problème ou pour envoyer des SMS longs, contactez le support d’AlgerieSMS.  
-  - **Utilisez des Numéros Internationaux**: Utilisez toujours les codes de pays sans "+" ni "00" (ex.: 21612345678).
+-----------------------------------------------------------------------
+
+text### `tips.md`
+```markdown
+# Conseils pour Réussir
+
+## Protégez Votre Clé
+- Ne partagez pas votre Clé d’Autorisation publiquement.
+
+## Testez d’Abord
+- Utilisez un outil comme Postman pour tester les URLs avant de coder.
+
+## Contactez le Support
+- En cas de problème ou pour envoyer des SMS longs, contactez le support d’AlgerieSMS.
+
+## Utilisez des Numéros Internationaux
+- Utilisez toujours les codes de pays sans "+" ni "00" (ex.: 21612345678).
