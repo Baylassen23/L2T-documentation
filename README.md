@@ -29,8 +29,7 @@ L’API fonctionne en envoyant des requêtes à des URLs spécifiques. Vous remp
 ### URL
 https://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=%KEY%&mobile=%MOBILE%&sms=%SMS%&sender=%SENDER%&date=%DATE%&heure=%HEURE%&content-type=%CONTENT-TYPE%
 
-markdown
-Copier le code
+
 
 ### Paramètres
 - `%KEY%`: Votre Clé d’Autorisation.  
@@ -44,8 +43,7 @@ Copier le code
 ### Exemple d’envoi
 https://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=votre_clé_ici&mobile=21612345678&sms=Bonjour+Monde&sender=MonEntreprise&date=25/10/2025&heure=14:30&content-type=JSON
 
-bash
-Copier le code
+
 
 ### Réponse
 ```json
@@ -64,22 +62,22 @@ Copier le code
 Cela signifie que votre SMS est en attente d’envoi. Conservez le message_id pour vérifier la livraison plus tard.
 
 2. Vérifier l’État de Livraison (DLR)
-URL
-perl
-Copier le code
+### URL
+
 https://api.l2t.io/dz/s/api/v1/sms?fct=dlr&key=%KEY%&msg_id=%MSG_ID%&content-type=%CONTENT-TYPE%
-Paramètres
+
+### Paramètres
 %KEY%: Votre Clé d’Autorisation.
 
 %MSG_ID%: L’ID du message obtenu précédemment.
 
 %CONTENT-TYPE%: (Facultatif) "JSON" ou "XML".
 
-Exemple
-bash
-Copier le code
+### Exemple
+
 https://api.l2t.io/dz/s/api/v1/sms?fct=dlr&key=votre_clé_ici&msg_id=12345&content-type=JSON
-Réponse
+
+### Réponse
 ```json
 
 {
@@ -98,6 +96,7 @@ Réponse
 }
 ```
 Signification des États
+
 DELIVERED: Le SMS a été livré.
 
 UNDELIVERED: Non livré.
@@ -109,17 +108,14 @@ REJECTED: Refusé par le destinataire.
 UNKNOWN: En attente, à vérifier plus tard.
 
 3. Consulter Votre Solde
-URL
-perl
-Copier le code
+
+### URL
 https://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=%KEY%&content-type=%CONTENT-TYPE%
-Exemple
-bash
-Copier le code
+
+### Exemple
 https://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=votre_clé_ici&content-type=JSON
 
-Réponse
-
+### Réponse
 ```json
 {
   "success": true,
@@ -133,6 +129,7 @@ Réponse
 }
 ```
 Comprendre la Réponse
+
 success: true → La requête a réussi.
 
 message: "Solde du compte" → Détails du solde.
@@ -140,15 +137,14 @@ message: "Solde du compte" → Détails du solde.
 balance: 500 → Nombre de crédits SMS restants.
 
 4. Récupérer la Liste des Expéditeurs
-URL
-perl
-Copier le code
+
+### URL
 https://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=%KEY%&content-type=%CONTENT-TYPE%
-Exemple
-bash
-Copier le code
+
+### Exemple
 https://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=votre_clé_ici&content-type=JSON
-Réponse
+
+### Réponse
 ```json
 {
   "success": true,
@@ -168,6 +164,7 @@ Réponse
 }
 ```
 Conseils pour Réussir
+
 Protégez Votre Clé
 Ne partagez pas votre Clé d’Autorisation publiquement.
 
