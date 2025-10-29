@@ -8,10 +8,10 @@ L’API HTTP SMS d’AlgerieSMS vous permet d’envoyer des SMS, de vérifier le
 ## Vos Détails API
 Lorsque vous créez une application sur [https://app.algeriesms.com](https://app.algeriesms.com), vous recevez :
 
-- **ID d’Application**: Un numéro unique pour votre application (ex.: 26).  
-- **Clé d’Autorisation**: Un code secret pour accéder à l’API (gardez-le confidentiel !).  
-- **Nom d’Expéditeur**: Le nom qui apparaît comme expéditeur de vos SMS (ex.: "MonEntreprise").  
-- **URLs API**: Les liens pour envoyer des SMS, vérifier la livraison, etc.
+-  🆔   **ID d’Application**: Un numéro unique pour votre application (ex.: 26).  
+- 🔑  **Clé d’Autorisation**: Un code secret pour accéder à l’API (gardez-le confidentiel !).  
+- 📝  **Nom d’Expéditeur**: Le nom qui apparaît comme expéditeur de vos SMS (ex.: "MonEntreprise").  
+- 🔗  **URLs API**: Les liens pour envoyer des SMS, vérifier la livraison, etc.
 
 ### Exemple de Détails
 - **Nom de l’Application**: baylacen.elabed@gmail.com  
@@ -26,7 +26,7 @@ Lorsque vous créez une application sur [https://app.algeriesms.com](https://app
 ## 1. Envoyer un SMS
 L’API fonctionne en envoyant des requêtes à des URLs spécifiques. Vous remplacez les placeholders par vos valeurs réelles. Vous pouvez tester ces URLs dans un navigateur, un outil comme **Postman**, ou un script de programmation.
 
-### URL
+  ###  🔗 URL
 https://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=%KEY%&mobile=%MOBILE%&sms=%SMS%&sender=%SENDER%&date=%DATE%&heure=%HEURE%&content-type=%CONTENT-TYPE%
 
 
@@ -62,7 +62,7 @@ https://api.l2t.io/dz/s/api/v1/sms?fct=sms&key=votre_clé_ici&mobile=21612345678
 Cela signifie que votre SMS est en attente d’envoi. Conservez le message_id pour vérifier la livraison plus tard.
 
 2. Vérifier l’État de Livraison (DLR)
-### URL
+### 🔗  URL
 
 https://api.l2t.io/dz/s/api/v1/sms?fct=dlr&key=%KEY%&msg_id=%MSG_ID%&content-type=%CONTENT-TYPE%
 
@@ -109,7 +109,7 @@ UNKNOWN: En attente, à vérifier plus tard.
 
 3. Consulter Votre Solde
 
-### URL
+### 🔗  URL
 https://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=%KEY%&content-type=%CONTENT-TYPE%
 
 ### Exemple
@@ -128,7 +128,7 @@ https://api.l2t.io/dz/s/api/v1/sms?fct=balance&key=votre_clé_ici&content-type=J
   }
 }
 ```
-Comprendre la Réponse
+### Comprendre la Réponse
 
 success: true → La requête a réussi.
 
@@ -138,7 +138,7 @@ balance: 500 → Nombre de crédits SMS restants.
 
 4. Récupérer la Liste des Expéditeurs
 
-### URL
+###  🔗 URL
 https://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=%KEY%&content-type=%CONTENT-TYPE%
 
 ### Exemple
@@ -163,16 +163,16 @@ https://api.l2t.io/dz/s/api/v1/sms?fct=sender&key=votre_clé_ici&content-type=JS
   ]
 }
 ```
-### Conseils pour Réussir
+## Conseils pour Réussir
 
-## Protégez Votre Clé
+### 🔒 Protégez Votre Clé
 Ne partagez pas votre Clé d’Autorisation publiquement.
 
-## Testez d’Abord
+### 💻Testez d’Abord
 Utilisez un outil comme Postman pour tester les URLs avant de coder.
 
-## Contactez le Support
+### 💬 Contactez le Support
 En cas de problème ou pour envoyer des SMS longs, contactez le support d’AlgerieSMS.
 
-## Utilisez des Numéros Internationaux
+### 🌍 Utilisez des Numéros Internationaux
 Utilisez toujours les codes de pays sans "+" ni "00" (ex.: 21612345678).
